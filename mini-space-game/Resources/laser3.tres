@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LaserResource" format=3 uid="uid://crj2mhlxbci02"]
+
+[ext_resource type="Script" uid="uid://4mw856qkse8h" path="res://Resources/laser_resource.gd" id="1_ixy8l"]
+[ext_resource type="Texture2D" uid="uid://dmnctfv6a4b2h" path="res://Assets/Laser/laser3.png" id="2_ckxvb"]
+
+[resource]
+script = ExtResource("1_ixy8l")
+level = 3
+damage = 3
+texture = ExtResource("2_ckxvb")
+metadata/_custom_type_script = "uid://4mw856qkse8h"
