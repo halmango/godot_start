@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cui3mbta3x33x"]
 
 [ext_resource type="Texture2D" uid="uid://dil737nc06w3q" path="res://Assets/Background.png" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://cplg8nyyv5rim" path="res://Scenes/game.gd" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://wj5emv64cxwo" path="res://Scenes/player.tscn" id="2_qxrlw"]
 
 [node name="Game" type="Node2D" unique_id=1029940656]
+script = ExtResource("1_wrm1d")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=455277116]
 offset_right = 1152.0
@@ -13,3 +15,43 @@ stretch_mode = 1
 
 [node name="player" parent="." unique_id=320748612 instance=ExtResource("2_qxrlw")]
 position = Vector2(576, 560)
+
+[node name="laserSpawner" type="Node" parent="." unique_id=1738898932]
+
+[node name="enemySpawner" type="Node" parent="." unique_id=95180808]
+
+[node name="stageTimer" type="Timer" parent="." unique_id=1927151030]
+wait_time = 8.0
+autostart = true
+
+[node name="stageLabel" type="Label" parent="." unique_id=894879706]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "Stage: 1"
+
+[node name="killLabel" type="Label" parent="." unique_id=1998978574]
+offset_left = 980.0
+offset_right = 1074.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 32
+text = "Kills: 0"
+
+[node name="saveQuitButton" type="Button" parent="." unique_id=205539322]
+offset_left = 1050.0
+offset_top = 585.0
+offset_right = 1132.0
+offset_bottom = 624.0
+text = "Quit"
+
+[node name="restartButton2" type="Button" parent="." unique_id=1683721845]
+offset_left = 1050.0
+offset_top = 540.0
+offset_right = 1132.0
+offset_bottom = 579.0
+text = "Restart
+"
+
+[connection signal="timeout" from="stageTimer" to="." method="_on_stage_timer_timeout"]
+[connection signal="pressed" from="saveQuitButton" to="." method="_on_save_quit_button_pressed"]
+[connection signal="pressed" from="restartButton2" to="." method="_on_restart_button_pressed"]
