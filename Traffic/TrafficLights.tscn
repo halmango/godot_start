@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cukomum5urkpf"]
+
+[ext_resource type="PackedScene" uid="uid://qiw84uos2mc6" path="res://Characters/Red.tscn" id="1_2mqug"]
+[ext_resource type="Script" uid="uid://kytevfxkwggo" path="res://TrafficLights.gd" id="1_j25cp"]
+[ext_resource type="PackedScene" uid="uid://bjln2i65kt8o4" path="res://Characters/Yellow.tscn" id="2_6nntk"]
+[ext_resource type="PackedScene" uid="uid://dhyfpgd3r0rci" path="res://Characters/Green.tscn" id="3_iq5e7"]
+
+[node name="TrafficLights" type="Node2D" unique_id=316944158]
+script = ExtResource("1_j25cp")
+
+[node name="Red" parent="." unique_id=685250201 instance=ExtResource("1_2mqug")]
+
+[node name="Yellow" parent="." unique_id=933828549 instance=ExtResource("2_6nntk")]
+position = Vector2(0, 200)
+
+[node name="Green" parent="." unique_id=585647329 instance=ExtResource("3_iq5e7")]
+position = Vector2(0, 400)
