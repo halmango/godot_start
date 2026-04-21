@@ -6,7 +6,7 @@
 [node name="MainScene" type="Node2D" unique_id=1633016786]
 
 [node name="TrafficLights" parent="." unique_id=362805907 instance=ExtResource("1_we68x")]
-position = Vector2(560, 124)
+position = Vector2(260, 124)
 
 [node name="BackgroundTree" type="Sprite2D" parent="." unique_id=496323583]
 position = Vector2(86, 537)
