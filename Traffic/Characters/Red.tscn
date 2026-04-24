@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://qiw84uos2mc6"]
+
+[ext_resource type="Texture2D" uid="uid://dvmholov1b101" path="res://Assets/red_body_circle.png" id="1_x65fk"]
+[ext_resource type="Texture2D" uid="uid://vu54e7a8f702" path="res://Assets/face_i.png" id="2_skymu"]
+[ext_resource type="Texture2D" uid="uid://c4tgw2rpbe50t" path="res://Assets/red_hand_open.png" id="3_q6r23"]
+
+[node name="Red" type="Node2D"]
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("1_x65fk")
+
+[node name="Face" type="Sprite2D" parent="."]
+texture = ExtResource("2_skymu")
+
+[node name="Hand" type="Sprite2D" parent="."]
+position = Vector2(110, 42)
+texture = ExtResource("3_q6r23")

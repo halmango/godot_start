@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://da8k6reqxldv8"]
+
+[ext_resource type="PackedScene" uid="uid://cukomum5urkpf" path="res://TrafficLights.tscn" id="1_we68x"]
+[ext_resource type="Texture2D" uid="uid://c527am4p724aa" path="res://Assets/tile_background_tree_small.png" id="2_65lxf"]
+
+[node name="MainScene" type="Node2D" unique_id=1633016786]
+
+[node name="TrafficLights" parent="." unique_id=362805907 instance=ExtResource("1_we68x")]
+position = Vector2(260, 124)
+
+[node name="TrafficLights2" parent="." unique_id=316944158 instance=ExtResource("1_we68x")]
+position = Vector2(560, 124)
+red_delay = 1.0
+green_delay = 1.0
+yellow_flag = false
+
+[node name="TrafficLights3" parent="." unique_id=418188292 instance=ExtResource("1_we68x")]
+position = Vector2(860, 124)
+red_delay = 3.3
+yellow_delay = 0.7
+
+[node name="BackgroundTree" type="Sprite2D" parent="." unique_id=496323583]
+position = Vector2(86, 537)
+texture = ExtResource("2_65lxf")
+
+[node name="BackgroundTree2" type="Sprite2D" parent="." unique_id=1314280288]
+position = Vector2(1033, 537)
+texture = ExtResource("2_65lxf")
