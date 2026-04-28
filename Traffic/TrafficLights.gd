@@ -10,13 +10,18 @@ extends Node2D
 @export var green_delay : float = 1.5
 @export var yellow_flag : bool = true
 
-enum Lights { RED, YELLOW, GREEN }
 
+signal LightsLog(prev: int, curr: int, node: Node2D)
+
+enum Lights { RED, YELLOW, GREEN }
 
 # current_light 변수의 값이 변경될 때 실행됨
 var current_light : int = Lights.RED :
 	set(light):
+		var prev = current_light
 		current_light = light
+		var curr = current_light
+		LightsLog.emit(prev, curr)
 		set_light(current_light)
 
 
