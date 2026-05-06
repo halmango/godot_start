@@ -12,20 +12,7 @@ func _ready() -> void:
 
 
 func log_print(prev: int, curr: int, node: Node2D):
-	var p: String
-	var c: String
-	match prev:
-		0:
-			p = "Red"
-		1:
-			p = "Yellow"
-		2:
-			p = "Green"
-	match curr:
-		0:
-			c = "Red"
-		1:
-			c = "Yellow"
-		2:
-			c = "Green"
+	var p: String = TrafficLight.Lights.keys()[prev]
+	var c: String = TrafficLight.Lights.keys()[curr]
+
 	print("node: ", node, " prev: ", p, " curr: ", c)

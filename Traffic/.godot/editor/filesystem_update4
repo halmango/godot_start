@@ -1,7 +1,3 @@
-res://TrafficLights.tscn
-res://TrafficLights.gd
 res://MainScene.tscn
-res://Characters/Green.tscn
-res://Characters/Red.tscn
-res://Characters/Yellow.tscn
 res://main_scene.gd
+res://TrafficLights.gd
