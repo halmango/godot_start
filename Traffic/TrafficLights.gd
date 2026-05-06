@@ -52,16 +52,24 @@ func lights_on() -> void:
 
 
 func set_light(color: int) -> void:
+	var my_tween : Tween = create_tween()
+	var big: Vector2 = Vector2(1,1)
+	var small: Vector2 = Vector2(0.4,0.4)
+	
+	my_tween.tween_property(red, "scale", small, 0.3).from_current()\
+			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	my_tween.parallel().tween_property(yellow, "scale", small, 0.3).from_current()\
+			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	my_tween.parallel().tween_property(green, "scale", small, 0.3).from_current()\
+			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+			
 	match color:
 		Lights.RED:
-			red.set_visible(true)
-			yellow.set_visible(false)
-			green.set_visible(false)
+			my_tween.tween_property(red, "scale", big, 0.3).from_current()\
+				.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 		Lights.YELLOW:
-			red.set_visible(false)
-			yellow.set_visible(true)
-			green.set_visible(false)
+			my_tween.parallel().tween_property(yellow, "scale", big, 0.3).from_current()\
+				.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 		Lights.GREEN:
-			red.set_visible(false)
-			yellow.set_visible(false)
-			green.set_visible(true)
+			my_tween.parallel().tween_property(green, "scale", big, 0.3).from_current()\
+				.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
