@@ -1,4 +1,5 @@
 extends Node2D
+class_name TrafficLight
 
 @onready var red: Node2D = $Red
 @onready var yellow: Node2D = $Yellow
