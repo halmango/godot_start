@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://cej4yt13oc6fv"]
+
+[ext_resource type="Script" uid="uid://c324g480vcpnj" path="res://Scenes/Player/player.gd" id="1_mtuoh"]
+[ext_resource type="Texture2D" uid="uid://bcuimk8bucliv" path="res://assets/ships/Mainship/Mainship_hp4.png" id="1_xpcdj"]
+[ext_resource type="Texture2D" uid="uid://o4igja4inm8a" path="res://assets/ships/Mainship/Mainship_engine.png" id="2_mtuoh"]
+[ext_resource type="Texture2D" uid="uid://47qgodofe38u" path="res://assets/ships/Mainship/Mainship_engine_effect.png" id="3_htcer"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd0ac"]
+atlas = ExtResource("3_htcer")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u5uq"]
+atlas = ExtResource("3_htcer")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlvik"]
+atlas = ExtResource("3_htcer")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk6dx"]
+atlas = ExtResource("3_htcer")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhyir"]
+atlas = ExtResource("3_htcer")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74mp2"]
+atlas = ExtResource("3_htcer")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oikmp"]
+atlas = ExtResource("3_htcer")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06tpx"]
+atlas = ExtResource("3_htcer")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7g0yx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd0ac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u5uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlvik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk6dx")
+}],
+"loop": true,
+"name": &"Boost",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhyir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74mp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oikmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06tpx")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 15.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dey5f"]
+radius = 8.0
+height = 26.0
+
+[node name="Player" type="Area2D" unique_id=389152160]
+script = ExtResource("1_mtuoh")
+
+[node name="MainShipSprite" type="Sprite2D" parent="." unique_id=349537104]
+rotation = 1.5707964
+texture = ExtResource("1_xpcdj")
+
+[node name="MainShipEngineSprite" type="Sprite2D" parent="." unique_id=693037228]
+rotation = 1.5707964
+texture = ExtResource("2_mtuoh")
+
+[node name="AnimatedEngineSprite" type="AnimatedSprite2D" parent="." unique_id=908996227]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_7g0yx")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=85647583]
+position = Vector2(-4, 0)
+shape = SubResource("CapsuleShape2D_dey5f")
+
+[node name="Timer" type="Timer" parent="." unique_id=1759447105]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
