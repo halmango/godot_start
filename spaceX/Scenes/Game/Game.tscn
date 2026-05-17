@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://b5i7drqau2kad"]
 
-[ext_resource type="PackedScene" uid="uid://buuced2sku3oe" path="res://Scenes/Gamebackground/Gamebg.tscn" id="1_hqwdr"]
+[ext_resource type="PackedScene" uid="uid://buuced2sku3oe" path="res://Scenes/Gamebackground/gamebg.tscn" id="1_mv0hc"]
+[ext_resource type="PackedScene" uid="uid://cej4yt13oc6fv" path="res://Scenes/Player/player.tscn" id="2_qxfds"]
 
 [node name="Game" type="Node2D" unique_id=1280405625]
 
-[node name="GameBackground" parent="." unique_id=1637839733 instance=ExtResource("1_hqwdr")]
+[node name="GameBackground" parent="." unique_id=1637839733 instance=ExtResource("1_mv0hc")]
 offset = Vector2(320, 180)
 transform = Transform2D(1, 0, 0, 1, 320, 180)
+
+[node name="Player" parent="." unique_id=389152160 instance=ExtResource("2_qxfds")]
+position = Vector2(355, 233)
